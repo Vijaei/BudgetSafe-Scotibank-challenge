@@ -1,0 +1,311 @@
+<!--https://bootstrap-vue.js.org/docs/reference/starter-templates/
+
+Nice Example:
+https://github.com/rdegges/cryptocompare
+https://developer.okta.com/blog/2017/09/06/build-a-cryptocurrency-comparison-site-with-vuejs
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <title>Bank App</title>
+
+    <!-- Required Stylesheets -->
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+
+    <!-- Required scripts -->
+    <!--script src="https://unpkg.com/vue"></script-->
+
+    <!--Vue.js link-->
+    <script type = "text/javascript" src = "js/vue.js"></script>
+
+    <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Our application root element which contains all bootstrap-Vue elements -->
+    <div id="app" style="background-color:yellow">
+
+      <h2>Budget $afe</h2>
+
+      <!-- <b-modal v-model="modalShowExpense">
+        New Entry!<br>
+        You have spent {{text2}} on {{text1}}.
+      </b-modal>
+
+      <b-modal v-model="modalShowIncome">
+        New Entry!<br>
+        You have gained {{text4}}.
+      </b-modal>
+
+
+      <b-modal v-model="spendLittle">
+        New Entry!<br>
+        You have spent more than what you have gained.
+        You should spend less money.
+      </b-modal>
+
+      <b-modal v-model="spendLots">
+        New Entry!<br>
+        You have spent way more than what you have gained.
+        You should really spend less money.
+      </b-modal> -->
+
+      <!-- Tabs with card integration -->
+       <b-card no-body>
+
+          <b-tabs pills card vertical="tabIndex">
+
+          <!-- My accounts tab -->
+
+            <b-tab title="My Accounts">
+
+               Deposit Accounts: <br>
+               Account Balance:<b-card no-body class="text-left">
+                ${{Chequing_Account}}
+            </b-card>
+
+          <hr noshade>
+
+          Scotia Visa Infinite: <b-card no-body class="text-left">
+              ${{Total_Credit}}
+          </b-card>
+
+          <hr noshade>
+
+          Budget Safe Balance: <b-card no-body class="text-left">
+            ${{Safe_Budget}}
+        </b-card>
+
+         <br>
+             </b-tab>
+
+             <b-tab title="Income Entry">
+
+                Enter income: <b-form-input v-model="text3"
+                              type="text"
+                              placeholder="Income goes here"></b-form-input>
+
+                Enter gain: <b-form-input v-model="text4"
+                              type="text"
+                              placeholder="Gain goes here"></b-form-input>
+
+                <b-button :size="size" :variant="variant" @click="buttonEventIncome" style="background-color:red">
+                     Add New Income!
+                </b-button>
+
+              </b-tab>
+
+                <b-tab title="Expense Entry">
+
+                  Enter an expense: <b-form-input v-model="text1"
+                                type="text"
+                                placeholder="Expense goes here"></b-form-input>
+
+                  Enter a cost: <b-form-input v-model="text2"
+                                type="text"
+                                placeholder="Cost goes here"></b-form-input>
+
+                  <b-button :size="size" :variant="variant" @click="buttonEventExpense" style="background-color:red">
+                       Add New Expense!
+                  </b-button>
+
+                  <b-button :size="size" :variant="variant" @click="buttonEventBill" style="background-color:red">
+                    Add New Bill!
+               </b-button>
+
+                  <br>
+                  List of Expenses:<b-table striped hover :items="items"></b-table>
+
+                  <br>
+                  List of Bills:<b-table striped hover :items="bills"></b-table>
+                </b-tab>
+
+               <!-- <b-tab title="Transactions">
+
+                 Acount Summary:
+                 <template>
+                  <div>
+                    Filter Number of Transactions:<b-form-select v-model="selected" :options="Transaction_Options" class="mb-3">
+                    </b-form-select>
+                    <div>Selected: <strong>{{ selected }}</strong></div>
+                  </div>
+                </template>
+                <br>
+                <template>
+                  <div>
+                    Enable Savings Transactions <br><b-form-checkbox id="checkbox1"
+                                     v-model="Saving_Transations"
+                                     value="on"
+                                     unchecked-value="off">
+                    </b-form-checkbox>
+                    <div>State: <strong>{{Saving_Transations}}</strong></div>
+                  </div>
+                </template>
+
+                 <br>
+
+                 <template>
+                  <div>
+                    Send Alerts for Activity <br><b-form-checkbox id="checkbox2"
+                                     v-model="Enable_Alerts"
+                                     value="on"
+                                     unchecked-value="off">
+                    </b-form-checkbox>
+                    <div>State: <strong>{{Enable_Alerts}}</strong></div>
+                  </div>
+                </template>
+                
+                 Recent Transactions:<b-table striped hover :items="items"></b-table>
+               </b-tab> -->
+
+               <!-- <b-tab title="Goals">
+                 <br>
+                <div>Amount Total: ${{Total_Amount}}</div>
+                <br>
+                <div>Credit: ${{totalExpense}}</div>
+                <br>
+
+                
+                <template>
+                    <div>
+                      <div v-for="bar in bars" class="row mb-1">
+                        <div class="col-sm-2">{{ bar.variant }}:</div>
+                        <div class="col-sm-10 pt-1">
+                          <b-progress 
+                                      :value="bar.value"
+                                      :variant="bar.variant"
+                                      :key="bar.variant"
+                          ></b-progress>
+                        </div>
+                      </div>
+                    </div>
+                  </template> -->
+
+               <!-- </b-tab>
+
+               <br>
+
+               <b-tab title="Alerts">
+                Here is the same info in a list:
+
+                <ol>
+                  <li v-for="item in items">{{ item }}</li>
+                </ol>
+
+              </b-tab>
+
+           </b-tabs> -->
+       </b-card>
+
+       
+
+
+       <!-- Control buttons-->
+       <div class="text-center">
+           <b-button-group class="mt-2">
+             <b-btn @click="tabIndex--">Previous</b-btn>
+             <b-btn @click="tabIndex++">Next</b-btn>
+           </b-button-group>
+           <br>
+           <span class="text-muted">Current Tab: {{tabIndex}}</span>
+       </div>
+
+    </div>
+
+
+
+    <!-- Start running your app -->
+    <script>
+
+      window.app = new Vue({
+        el: "#app",
+        data: {
+          //Variables go here. key : value pairs. Comma separated
+          tabIndex : 0,
+          text1 : "",
+          text2 : "",
+          text3 : "",
+          text4 : "",
+          size : "",
+          variant : "",
+          items : [],
+          bills : [],
+          gains : [],
+          totalExpense : 500,
+          Total_Amount: 0,
+          Total_Credit: 0,
+          Total_Bills: 0,
+          Safe_Budget: 0,
+          Chequing_Account: 0,
+          selected: null,
+          Transaction_Options: [
+            { value: '10', text: '10' },
+            { value: '20', text: '20' },
+            { value: '30', text: '30' }
+          ],
+          Accounts: [
+            {text: 'Chequing' },
+            {text: 'Saving' },
+          ],
+          Saving_Transations: 'off',
+          Enable_Alerts: 'off',
+          bars: [
+        {variant: 'a', value: 75},
+        {variant: 'Credit', value: 50},
+      ]
+
+        },
+
+        
+        methods: {
+
+          //Methods go here. Comma separated
+          buttonEventExpense(){
+
+            var numItems = this.items.length;
+            this.items.push({input1 : this.text1, input2 : this.text2});
+            this.tabIndex++;
+            this.Total_Credit += Number(this.text2);
+            this.Chequing_Account -= Number(this.text2);
+          },
+
+          buttonEventBill(){
+
+            var numItems = this.bills.length;
+            this.bills.push({input1 : this.text1, input2 : this.text2});
+            this.tabIndex++;
+            this.Total_Bills = Number(this.text2) + Number(this.Total_Credit);
+            this.Safe_Budget -= Number(this.Total_Bills);
+          },
+
+          buttonEventIncome(){
+            
+            var numItems = this.items.length;
+            this.items.push({input1 : this.text3, input2 : this.text4});
+            this.tabIndex++;
+            this.Total_Amount = Number(this.Chequing_Account);
+            this.Chequing_Account += Number(this.text4);
+            this.Safe_Budget += Number(this.text4);
+
+          }
+
+        }
+
+      })
+
+    </script>
+
+
+  </body>
+</html>
